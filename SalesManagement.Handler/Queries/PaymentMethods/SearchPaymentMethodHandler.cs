@@ -1,5 +1,7 @@
-﻿using SalesManagement.DTOs.Queries;
+﻿using SalesManagement.Aggregators.Mapper;
+using SalesManagement.DTOs.Queries;
 using SalesManagement.DTOs.Responses.PaymentMethods;
+using SalesManagement.Handler.Interfaces;
 using SalesManagement.Repository.Data;
 using SalesManagement.Repository.Interfaces;
 using System;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SalesManagement.Handler.Queries.PaymentMethods
 {
-    public class SearchPaymentMethodHandler
+    public class SearchPaymentMethodHandler:ISearchPaymentMethodHandler
     {
         private readonly IPaymentMethodRepository _repository;
 
@@ -23,14 +25,7 @@ namespace SalesManagement.Handler.Queries.PaymentMethods
         {
             var paymentMethods = await _repository.SearchAsync(query.Name, query.IsActive);
 
-            return paymentMethods.Select(x => new PaymentMethodResponseDto
-            {
-                PaymentMethodId = x.PaymentMethodId,
-                PaymentMethodName = x.PaymentMethodName,
-                Description = x.Description,
-                IsActive = x.IsActive,
-                CreateDate = x.CreateDate
-            }).ToList();
+            return PaymentMethodMapper.ToResponseList(paymentMethods);
         }
     }
 }

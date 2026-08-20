@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SalesManagement.DTOs.Commands;
 using SalesManagement.DTOs.Queries;
 using SalesManagement.Handler.Commands.PaymentMethods;
+using SalesManagement.Handler.Interfaces;
 using SalesManagement.Handler.Queries.PaymentMethods;
 
 namespace SalesManagement.API.Controllers
@@ -11,8 +12,8 @@ namespace SalesManagement.API.Controllers
     [Route("api/[controller]")]
     public class PaymentMethodController : ControllerBase
     {
-        private readonly CreatePaymentMethodHandler _createHandler;
-        private readonly SearchPaymentMethodHandler _searchHandler;
+        private readonly ICreatePaymentMethodHandler _createHandler;
+        private readonly ISearchPaymentMethodHandler _searchHandler;
 
         public PaymentMethodController( CreatePaymentMethodHandler createHandler, SearchPaymentMethodHandler searchHandler)
         {
