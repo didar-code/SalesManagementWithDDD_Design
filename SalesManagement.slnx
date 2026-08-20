@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/SalesMasterDetailsCRUD/">
+    <Project Path="D:/Didar/Task/SalesManagement/SalesManagement.Aggregators/SalesManagement.Aggregators.csproj" />
+    <Project Path="D:/Didar/Task/SalesManagement/SalesManagement.API/SalesManagement.API.csproj" />
+    <Project Path="D:/Didar/Task/SalesManagement/SalesManagement.DTOs/SalesManagement.DTOs.csproj" />
+    <Project Path="D:/Didar/Task/SalesManagement/SalesManagement.Handler/SalesManagement.Handler.csproj" />
+    <Project Path="D:/Didar/Task/SalesManagement/SalesManagement.Repository/SalesManagement.Repository.csproj" />
+  </Folder>
+</Solution>
