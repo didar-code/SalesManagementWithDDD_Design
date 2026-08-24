@@ -1,9 +1,14 @@
 using Microsoft.EntityFrameworkCore;
-using SalesManagement.Handler.Commands.PaymentMethods;
-using SalesManagement.Handler.Queries.PaymentMethods;
+using SalesManagement.DTOs.Commands;
+using SalesManagement.DTOs.Queries;
+using SalesManagement.DTOs.Responses;
+using SalesManagement.Handler.Commands;
+
+using SalesManagement.Handler.Queries;
 using SalesManagement.Repository.Data;
 using SalesManagement.Repository.Implementations;
 using SalesManagement.Repository.Interfaces;
+using SalesManagement.Shared.Generics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,8 +21,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>options.UseSqlServer( buil
 
 builder.Services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
 
-builder.Services.AddScoped<CreatePaymentMethodHandler>();
-builder.Services.AddScoped<SearchPaymentMethodHandler>();
+
+builder.Services.AddScoped<ICommandHandler<CreatePaymentMethodCommand, PaymentMethodResponseDto>, CreatePaymentMethodHandler>();
+builder.Services.AddScoped<IQueryHandler<SearchPaymentMethodQuery, IEnumerable<PaymentMethodResponseDto>>, SearchPaymentMethodHandler>();
 
 var app = builder.Build();
 

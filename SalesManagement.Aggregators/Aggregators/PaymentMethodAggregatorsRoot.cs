@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace SalesManagement.Aggregators.PaymentMethods
 {
-    public class PaymentMethod
+    public class PaymentMethodAggregatorsRoot
     {
         public int PaymentMethodId { get; private set; }
         public string PaymentMethodName { get; private set; } = string.Empty;
         public string? Description { get; private set; }
         public bool IsActive { get; private set; }
         public DateTime CreateDate { get; private set; }
-        private PaymentMethod()
+        private PaymentMethodAggregatorsRoot()
         {
 
         }
-        public static PaymentMethod Create(string paymentMethodName, string? description, bool isActive)
+        public static PaymentMethodAggregatorsRoot Create(string paymentMethodName, string? description, bool isActive)
         {
             if (string.IsNullOrWhiteSpace(paymentMethodName))
             {
-                throw new ArgumentException("Payment method name cannot be null or empty.", nameof(paymentMethodName));
+                throw new ArgumentException("Paymentmethods name cannot be null or empty.", nameof(paymentMethodName));
             }
-            var paymentMethod = new PaymentMethod
+            var paymentMethod = new PaymentMethodAggregatorsRoot
             {
                 PaymentMethodName = paymentMethodName,
                 Description = description,

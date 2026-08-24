@@ -1,9 +1,18 @@
 <Solution>
-  <Folder Name="/SalesMasterDetailsCRUD/">
+  <Folder Name="/src/" />
+  <Folder Name="/src/AuthManagement/">
+    <Project Path="AuthManagement.Aggregators/AuthManagement.Aggregators.csproj" Id="1f00fdd5-fb29-4511-9e27-a2e995c706a5" />
+    <Project Path="AuthManagement.Api/AuthManagement.Api.csproj" Id="315b740f-cede-4bb5-97e7-c426fb3b432c" />
+    <Project Path="AuthManagement.DTOs/AuthManagement.DTOs.csproj" Id="785a7c20-93c8-4c2f-89fd-a9eaf596a3ad" />
+    <Project Path="AuthManagement.Handler/AuthManagement.Handler.csproj" Id="30cdb192-c1ed-40d9-a44f-10ea2f9baa5b" />
+    <Project Path="AuthManagement.Repository/AuthManagement.Repository.csproj" Id="3dbcbf70-be93-4e15-9aa8-5f2c2bc023de" />
+  </Folder>
+  <Folder Name="/src/SalesMasterDetailsCRUD/">
     <Project Path="D:/Didar/Task/SalesManagement/SalesManagement.Aggregators/SalesManagement.Aggregators.csproj" />
     <Project Path="D:/Didar/Task/SalesManagement/SalesManagement.API/SalesManagement.API.csproj" />
     <Project Path="D:/Didar/Task/SalesManagement/SalesManagement.DTOs/SalesManagement.DTOs.csproj" />
     <Project Path="D:/Didar/Task/SalesManagement/SalesManagement.Handler/SalesManagement.Handler.csproj" />
     <Project Path="D:/Didar/Task/SalesManagement/SalesManagement.Repository/SalesManagement.Repository.csproj" />
   </Folder>
+  <Project Path="SalesManagement.Shared/SalesManagement.Shared.csproj" Id="34d60c43-0859-4891-9489-8e055c983efc" />
 </Solution>

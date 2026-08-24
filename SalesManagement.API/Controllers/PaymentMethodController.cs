@@ -2,9 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using SalesManagement.DTOs.Commands;
 using SalesManagement.DTOs.Queries;
-using SalesManagement.Handler.Commands.PaymentMethods;
-using SalesManagement.Handler.Interfaces;
-using SalesManagement.Handler.Queries.PaymentMethods;
+using SalesManagement.DTOs.Responses;
+using SalesManagement.Shared.Generics;
+using System.Reflection.Metadata;
+
 
 namespace SalesManagement.API.Controllers
 {
@@ -12,19 +13,21 @@ namespace SalesManagement.API.Controllers
     [Route("api/[controller]")]
     public class PaymentMethodController : ControllerBase
     {
-        private readonly ICreatePaymentMethodHandler _createHandler;
-        private readonly ISearchPaymentMethodHandler _searchHandler;
 
-        public PaymentMethodController( CreatePaymentMethodHandler createHandler, SearchPaymentMethodHandler searchHandler)
+        private readonly ICommandHandler<CreatePaymentMethodCommand, PaymentMethodResponseDto> _createHandler;
+        private readonly IQueryHandler<SearchPaymentMethodQuery, IEnumerable<PaymentMethodResponseDto>> _searchHandler;
+
+        public PaymentMethodController(ICommandHandler<CreatePaymentMethodCommand, PaymentMethodResponseDto> createHandler, 
+            IQueryHandler<SearchPaymentMethodQuery, IEnumerable<PaymentMethodResponseDto>> searchHandler)
         {
-            _createHandler = createHandler;
+           _createHandler = createHandler;
             _searchHandler = searchHandler;
         }
 
         [HttpPost]
         public async Task<IActionResult> Create( CreatePaymentMethodCommand command)
         {
-            var result = await _createHandler.Handle(command);
+            var result = await _createHandler.HandleAsync(command);
 
             return Ok(result);
         }
@@ -32,7 +35,7 @@ namespace SalesManagement.API.Controllers
         [HttpGet("search")]
         public async Task<IActionResult> Search([FromQuery] SearchPaymentMethodQuery query)
         {
-            var result = await _searchHandler.Handle(query);
+            var result = await _searchHandler.HandleAsync(query);
 
             return Ok(result);
         }

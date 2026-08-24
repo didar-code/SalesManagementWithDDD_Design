@@ -19,14 +19,12 @@ namespace SalesManagement.Repository.Implementations
             _context = context;
         }
 
-        public async Task AddAsync(PaymentMethod paymentMethod)
+        public async Task AddAsync(PaymentMethodAggregatorsRoot paymentMethod)
         {
             await _context.PaymentMethods.AddAsync(paymentMethod);
         }
 
-        public async Task<List<PaymentMethod>> SearchAsync(
-            string? name,
-            bool? isActive)
+        public async Task<List<PaymentMethodAggregatorsRoot>> SearchAsync( string? name, bool? isActive)
         {
             var query = _context.PaymentMethods.AsQueryable();
 

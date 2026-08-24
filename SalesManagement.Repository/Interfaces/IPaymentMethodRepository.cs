@@ -9,9 +9,9 @@ namespace SalesManagement.Repository.Interfaces
 {
     public interface IPaymentMethodRepository
     {
-        Task AddAsync(PaymentMethod paymentMethod);
+        Task AddAsync(PaymentMethodAggregatorsRoot paymentMethod);
 
-        Task<List<PaymentMethod>> SearchAsync(string? name,bool? isActive);
+        Task<List<PaymentMethodAggregatorsRoot>> SearchAsync(string? name,bool? isActive);
 
         Task SaveAsync();
     }

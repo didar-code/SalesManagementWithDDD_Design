@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SalesManagement.Handler\SalesManagement.Handler.csproj" />
+    <ProjectReference Include="..\SalesManagement.Shared\SalesManagement.Shared.csproj" />
   </ItemGroup>
 
 </Project>

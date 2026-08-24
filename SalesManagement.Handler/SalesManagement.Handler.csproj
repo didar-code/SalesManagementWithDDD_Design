@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SalesManagement.DTOs\SalesManagement.DTOs.csproj" />
     <ProjectReference Include="..\SalesManagement.Repository\SalesManagement.Repository.csproj" />
+    <ProjectReference Include="..\SalesManagement.Shared\SalesManagement.Shared.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿using SalesManagement.Aggregators.PaymentMethods;
-using SalesManagement.DTOs.Responses.PaymentMethods;
+using SalesManagement.DTOs.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace SalesManagement.Aggregators.Mapper
 {
     public static class PaymentMethodMapper
     {
-        public static PaymentMethodResponseDto ToResponse( PaymentMethod paymentMethod)
+        public static PaymentMethodResponseDto ToResponse( PaymentMethodAggregatorsRoot paymentMethod)
         {
             return new PaymentMethodResponseDto
             {
@@ -21,7 +21,7 @@ namespace SalesManagement.Aggregators.Mapper
                 CreateDate = paymentMethod.CreateDate
             };
         }
-        public static List<PaymentMethodResponseDto> ToResponseList(List<PaymentMethod> paymentMethods)
+        public static List<PaymentMethodResponseDto> ToResponseList(List<PaymentMethodAggregatorsRoot> paymentMethods)
         {
             return paymentMethods.Select(ToResponse).ToList();
         }
